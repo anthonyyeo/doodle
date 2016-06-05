@@ -33,7 +33,7 @@ def grab_data(url):
 # read in the main text file with the url of the various ministries
     mainLinkdf = pd.read_csv('test.txt',header=None)
 
-    print(mainLinkdf.columns.values.tolist())
+    #print(mainLinkdf.columns.values.tolist())
 
 #get the value of the first ministry and get the url for the various departments in that ministry
     url1 = mainLinkdf[0].iloc[0]
@@ -54,7 +54,7 @@ def grab_data(url):
         f.write("%s\n" % thisLink['url'])
 
 
-
+# get the department details based on the ministry url
     url1min1df = pd.read_csv('url1.txt',header=None)
 
     url1dept = url1min1df[0].iloc[1]
@@ -81,11 +81,7 @@ def grab_data(url):
 
     new_df = new_df.rename(columns={0:'Rank',1:'Name'})
 
-
-
-    print(new_df)
-
-    #writer = pd.ExcelWriter('/home/Anthony/output.xlsx')
+    #print(new_df)
 
     new_df.to_csv('/Users/Anthony/Desktop/output.csv')
 
